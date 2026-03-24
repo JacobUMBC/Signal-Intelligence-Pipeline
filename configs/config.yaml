@@ -1,0 +1,31 @@
+signal:
+  freq: 5
+  sample_rate: 1000
+  duration: 1
+  noise_std: 0.5
+  output_csv: "signal.csv"
+  seed: 42
+
+fft:
+  input_file: "signal.csv"
+  output_file: "processed_fft.csv"
+
+anomaly:
+  input_file: "processed_fft.csv"
+  output_file: "anomalies.csv"
+  threshold_std: 3
+
+s3:
+  raw_bucket: "signal-raw-data-jacobr5"
+  processed_bucket: "signal-processed-data-jacobr5"
+  anomaly_bucket: "signal-anomalies-jacobr5"
+
+db:
+  csv_path: "anomalies.csv"
+  table_name: "processed_signals"
+  if_exists: "replace"
+  user: "admin"
+  password: "secret"
+  host: "localhost"
+  port: 5432
+  db_name: "signals"

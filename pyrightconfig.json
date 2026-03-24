@@ -1,0 +1,8 @@
+{
+  "include": ["src"],
+  "venvPath": "~/.conda/envs",
+  "venv": "base",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": false,
+  "reportMissingModuleSource": false
+}
